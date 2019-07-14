@@ -1,0 +1,14 @@
+body {
+  font-family: sans-serif;
+}
+
+table {
+  border: 1px solid gray;
+  font-size: 11px;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid gray;
+  padding: 2px;
+}
