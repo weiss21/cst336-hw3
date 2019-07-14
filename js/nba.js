@@ -1,12 +1,23 @@
+var url = "https://stats.nba.com/stats/playergamelog?DateFrom=&DateTo=&LeagueID=00&PlayerID=201942&Season=2015-16&SeasonType=Regular+Season&format=jsonp";
+var token;
+var expiresAt = 0;
+
+//Listener
+window.onload = getPlayerGameLogs();
+
+
+
 $(document).ready(function() {
   
 function getPlayerGameLogs() {
   
   $.ajax ({
-    url: "https://stats.nba.com/stats/playergamelog?DateFrom=&DateTo=&LeagueID=00&PlayerID=201942&Season=2018-19&SeasonType=Regular+Season&format=jsonp",
+    method: "GET",
+    url: url,
     dataType:"jsonp",
-    success: function(response) {
-      console.log(response.resultSets);
+    success: function(response, status) {
+      token = response.access_token;
+      expiresAt = Date.now() + response.expires_in - 60;
       populateTable(response.resultSets, 'CommonPlayerInfo');
       populateTable(response.resultSets, 'PlayerHeadlineStats');
     }
