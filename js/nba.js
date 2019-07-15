@@ -1,4 +1,6 @@
 var map;
+var lati;
+var longi;
 
 $("#zip").on("change", function() {
   $('#zipError').html("");
@@ -22,6 +24,10 @@ $("#zip").on("change", function() {
         $('#latitude').html('');
         $('#longitude').html('');
       }
+      
+      lati = parseInt(result.latitude);
+      longi = parseInt(result.longitude);
+      initMap();
     },
     error: function() {
       $('#zipError').html("Zip code not found.");
@@ -33,14 +39,20 @@ $("#zip").on("change", function() {
     }
   }); // ajax
 });
-
+//      lati = result.latitude;
+ //     longi = result.longitude;
+//      location.reload();
+ //     initMap();
 
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {
-      lat: result.latitude,
-      lng: result.longitude
+      lat: lati,
+      lng: longi
     },
-    zoom: 8
+    zoom: 11,
+
   });
+  
+
 }
