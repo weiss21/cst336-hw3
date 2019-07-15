@@ -1,3 +1,5 @@
+var map;
+
 $("#zip").on("change", function() {
   $('#zipError').html("");
 
@@ -31,3 +33,14 @@ $("#zip").on("change", function() {
     }
   }); // ajax
 });
+
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {
+      lat: result.latitude,
+      lng: result.longitude
+    },
+    zoom: 8
+  });
+}
