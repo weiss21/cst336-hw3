@@ -25,8 +25,8 @@ $("#zip").on("change", function() {
         $('#longitude').html('');
       }
       
-      lati = parseInt(result.latitude);
-      longi = parseInt(result.longitude);
+      lati = parseFloat(result.latitude);
+      longi = parseFloat(result.longitude);
       initMap();
     },
     error: function() {
