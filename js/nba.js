@@ -50,7 +50,7 @@ function initMap() {
       lat: lati,
       lng: longi
     },
-    zoom: 11,
+    zoom: 8,
 
   });
   
